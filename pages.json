@@ -1,0 +1,63 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/monitor/index",
+			"style": {
+				"navigationBarTitleText": "乐播新瑞"
+			}
+		},
+		{
+			"path":"pages/cyList/index",
+			"style":{
+				"navigationBarTitleText":"集团列表"
+			}
+		},
+		{
+			"path":"pages/my/index",
+			"style":{
+				"navigationBarTitleText":"个人中心"
+			}
+		}
+	
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "百灵监控",
+		"navigationBarBackgroundColor": "#266CEB",
+		"backgroundColor": "#266CEB",
+		"app-plus":{
+			"titleNView":{
+				"buttons":[
+					{
+						"type":"menu"
+					},
+					{
+						"type":"share"
+					}
+				]
+			}
+		}
+	},
+	"tabBar": {
+	    "color": "#9DC0E7",
+	    "selectedColor": "#266CEB",
+	    "borderStyle": "black",
+	    "backgroundColor": "#ffffff",
+	    "list": [{
+	        "pagePath": "pages/monitor/index",
+	        "iconPath": "static/image/monitor.png",
+	        "selectedIconPath": "static/image/monitor_se.png",
+	        "text": "门店监控"
+	    }, {
+	        "pagePath": "pages/cyList/index",
+	        "iconPath": "static/image/cy.png",
+	        "selectedIconPath": "static/image/cy_se.png",
+	        "text": "集团列表"
+	    }, {
+	        "pagePath": "pages/my/index",
+	        "iconPath": "static/image/my.png",
+	        "selectedIconPath": "static/image/my_se.png",
+	        "text": "个人中心"
+	    }]
+	}
+}

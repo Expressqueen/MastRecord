@@ -1,0 +1,11 @@
+<template>
+	<view class="ani">
+		这是集团列表页面
+	</view>
+</template>
+
+<script>
+</script>
+
+<style>
+</style>

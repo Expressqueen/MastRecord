@@ -1,0 +1,34 @@
+.uni-page-head {
+	/* background: linear-gradient(90deg, #266CEB, #0085FE);
+	background-color: initial; */
+}
+
+.uni-page-head .uni-page-head__title {
+	font-size: 36rpx !important;
+}
+
+.uni-collapse-cell--open {
+	background-color: #FFFFFF !important;
+}
+
+.clearfix:before,
+.clearfix:after {
+	display: table;
+	content: "";
+}
+.clearfix:after {
+	clear: both;
+}
+.clearfix {
+	*zoom: 1;
+}
+
+.square {
+	width: 68rpx;
+	height: 68rpx;
+	border-radius: 10rpx;
+	color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
