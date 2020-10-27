@@ -31,7 +31,7 @@
 					<view class="clearfix">
 						<view class="selectcheck" @click="dropcyList">
 							<image src="../../static/image/address.png" mode=""></image>
-							{{cyList[slectcyIndex].title}}
+							{{cyList.length>0?cyList[slectcyIndex].name:''}}
 							<uni-icons :type="dropCylistShow?'arrowup':'arrowdown'" color="#333"></uni-icons>
 						</view>
 						<view class="square rightcheck" @click="dropcyList">
@@ -39,7 +39,7 @@
 						</view>
 					</view>
 					<uni-list class="checklist" v-if="dropCylistShow">
-						<uni-list-item v-for="(item,index) in cyList" :key="index" :title="item.title" clickable  @click="selectCy(index)">
+						<uni-list-item v-for="(item,index) in cyList" :key="index" :title="item.name" clickable  @click="selectCy(index)">
 							<template slot="footer" v-if="index == slectcyIndex">
 								<uni-icons type="checkmarkempty" color="#266CEB"></uni-icons>
 							</template>
@@ -105,13 +105,7 @@
 </template>
 
 <script>
-	import uniList from '@/components/uni-list/uni-list.vue'
-	import uniListItem from '@/components/uni-list-item/uni-list-item.vue'
 	export default {
-		components: {
-			uniList,
-			uniListItem
-		},
 		data() {
 			return {
 				deviceAll: "238",
@@ -121,20 +115,7 @@
 				addresIcon: '../../static/image/address.png',
 				dropCylistShow:false,
 				slectcyIndex:0,  //选中下拉集团下标
-				cyList:[
-					{
-						"title":"中石化加油站"
-					},
-					{
-						"title":"集团1"
-					},
-					{
-						"title":"集团2"
-					},
-					{
-						"title":"集团3"
-					},
-				],
+				cyList:[],
 				selectTab:'all',  //选中门店列表状态类型
 				onLineicon:{
 					voivenum:'../../static/image/onmusic.png',
@@ -176,26 +157,23 @@
 		},
 		methods:{
 			dropcyList(){
-				this.$data.dropCylistShow=!this.$data.dropCylistShow
+				this.dropCylistShow=!this.$data.dropCylistShow
 			},
 			selectCy(index){
-				this.$data.slectcyIndex=index;
-				this.$data.dropCylistShow=false;
+				this.slectcyIndex=index;
+				this.dropCylistShow=false;
 			},
 			moveHandle(){}
 			
 		},
 		onLoad() {
-			uni.request({
-				url:"/api/monitor/count",
-				success: (res) => {
-					console.log("请求成功")
-					console.log(res)
-				},
-				fail: (err) => {
-					console.log("请求失败")
-					console.log(err)
-				}
+			this.$api._getmonitorCount().then(res=>{
+				this.deviceAll=res.result.count;
+				this.normalHost=res.result.oncount;
+				this.abnormalHost=res.result.offcount;
+			})
+			this.$api._getcyList().then(res=>{
+				this.cyList=res.result.data;
 			})
 		},
 		onShow() {

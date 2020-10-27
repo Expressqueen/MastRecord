@@ -1,6 +1,16 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+		    "path" : "pages/login/login",
+		    "style" :                                                                                    
+		    {
+				// "navigationStyle":"custom",
+		        "navigationBarTitleText": "",
+				"backgroundColor":"#EEEEEE",
+		        "enablePullDownRefresh": false
+		    }
+		},
+		{
 			"path": "pages/monitor/index",
 			"style": {
 				"navigationBarTitleText": "乐播新瑞"
@@ -18,8 +28,8 @@
 				"navigationBarTitleText":"个人中心"
 			}
 		}
-	
-	],
+		
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "百灵监控",
